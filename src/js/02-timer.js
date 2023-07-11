@@ -2,7 +2,6 @@ import flatpickr from 'flatpickr';
 import { Ukrainian } from 'flatpickr/dist/l10n/uk.js';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import 'notiflix/dist/notiflix-3.2.6.min.js';
 
 const refs = {
   inputEl: document.querySelector('#datetime-picker'),
