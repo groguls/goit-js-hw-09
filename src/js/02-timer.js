@@ -46,6 +46,10 @@ function onBtnClick() {
   refs.buttonEl.disabled = true;
   fp.set('clickOpens', false);
 
+  timerOn();
+}
+
+function timerOn() {
   const timerID = setInterval(() => {
     const currentTime = Date.now();
     const timer = selectedTime - currentTime;
@@ -54,11 +58,27 @@ function onBtnClick() {
       return;
     }
     const { days, hours, minutes, seconds } = convertMs(timer);
-    refs.daysField.textContent = addLeadingZero(days);
-    refs.hoursField.textContent = addLeadingZero(hours);
-    refs.minutesField.textContent = addLeadingZero(minutes);
-    refs.secondsField.textContent = addLeadingZero(seconds);
+    updateDaysField(days);
+    updateHoursField(hours);
+    updateMinutesField(minutes);
+    updateSecondsField(seconds);
   }, 1000);
+}
+
+function updateDaysField(value) {
+  refs.daysField.textContent = addLeadingZero(value);
+}
+
+function updateHoursField(value) {
+  refs.hoursField.textContent = addLeadingZero(value);
+}
+
+function updateMinutesField(value) {
+  refs.minutesField.textContent = addLeadingZero(value);
+}
+
+function updateSecondsField(value) {
+  refs.secondsField.textContent = addLeadingZero(value);
 }
 
 function convertMs(ms) {
